@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# C extensions
+*.so
+
+# Virtual environment directories
+.env/
+.venv/
+venv/
+ENV/
+
+# Python egg files and caches
+*.egg
+*.egg-info/
+.eggs/
+
+# Distribution / packaging
+build/
+dist/
+*.whl
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# SQLAlchemy and SQLite database files
+*.db
+contracts.db
+
+# Environment variables
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code configuration files
+.vscode/
+
+# PyCharm project files
+.idea/
+
+# macOS files
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.out
+*.tmp
+
+# Streamlit cache and configuration
+.streamlit/
