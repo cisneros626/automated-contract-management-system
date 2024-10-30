@@ -1,3 +1,4 @@
+import os
 from sqlalchemy import create_engine, Column, Integer, String, Date, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -21,10 +22,14 @@ class Contract(Base):
 # SQLite or PostgreSQL connection
 DATABASE_URL = "sqlite:///contracts.db"  # Change this if using PostgreSQL
 
-# Create engine and session
-engine = create_engine(DATABASE_URL, echo=True)  # Set echo=True for SQL logging
+if not os.path.exists("contracts.db"):
+    print("Database file not found. Creating a new database.")
+    engine = create_engine(DATABASE_URL, echo=True)  # Create the engine
+    Base.metadata.create_all(engine)  # Create all tables
+else:
+    print("Database file found. Connecting to the existing database.")
+    engine = create_engine(DATABASE_URL, echo=False)
+
+# Set up the session
 Session = sessionmaker(bind=engine)
 session = Session()
-
-# Create the contracts table in the database (if it doesn't exist)
-Base.metadata.create_all(engine)
